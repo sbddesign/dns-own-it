@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:500,500i,700,700i|Titillium+Web:200,200i,700,700i&display=swap');
+.reveal {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 200;
+}
+
+.reveal a {
+    color: rgb(0, 255, 220);
+}
+
+.reveal a:hover {
+    color: rgb(10, 255, 240);
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    text-transform: none;
+}
+
+section {
+    font-size: 1.5vw;
+    text-align: left;
+}
+.reveal pre {
+    font-size: 0.75vw;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+.reveal pre code {
+    padding: 1rem;
+}
+
+.reveal pre code span {
+    color: #fff;
+    font-weight: normal;
+}
+
+.reveal pre code strong span {
+    font-weight: bold;
+}
+
+.reveal .comment, .reveal .comment span {
+    color: hsl(160, 25%, 70%);
+}
+
+.highlight, .highlight span {
+    color: rgb(0, 255, 220);
+}
+
+.record, .record span {
+    color: #fff;
+}
+
+.subtitle {
+    font-weight: 300;
+    font-family: 'Titillium Web', sans-serif;
+    text-transform: none;
+    font-size: 2vw;
+}
+
+span.animated {
+    display: inline-block;
+}
+

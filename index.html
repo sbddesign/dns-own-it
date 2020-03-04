@@ -4,14 +4,19 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>DNS - Own It</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="assets/css/dns.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<script src="https://kit.fontawesome.com/56e9e76d78.js" crossorigin="anonymous"></script>
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -25,8 +30,353 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<!-- Title -->
+				<section data-background-image="assets/img/dns-bg-05.jpg">
+					<h1>DNS <span class="subtitle"><span class="animated infinite bounce">🤘</span> Own it!</span></h1>
+					<p><small>by Stephen DeLorme</small></p>
+				</section>
+
+				<!-- Intro -->
+				<section data-background-image="assets/img/dns-bg-01.jpg">
+					<section>
+						<h2>🧐 The Way I See It</h2>
+						<ul>
+							<li class="fragment">
+								DNS records are important to a website.
+								<em class="fragment">(Massive&nbsp;understatement).</em>
+							</li>
+							<li class="fragment">
+								A lot of website owner's don't understand how they work, and don't feel confident
+								maintaining them.
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What relies on your DNS&nbsp;records?</h2>
+						<ul>
+							<li class="fragment">🙂 Your website</li>
+							<li class="fragment">😃 Your other website</li>
+							<li class="fragment">😅 Maybe your client’s website</li>
+							<li class="fragment">📧 Your email</li>
+							<li class="fragment">😵 Your digital marketing tools</li>
+							<li class="fragment">🤯 Almost anything</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- What is DNS? -->
+				<section data-background-image="assets/img/dns-bg-03.jpg">
+					<section>
+						<h2>🤔 What is DNS?</h2>
+					</section>
+					<section>
+						<h3>DNS = Domain Name System</h3>
+						<p class="fragment">
+							DNS records basically tell people’s computers how to get to your website, email,&nbsp;etc.
+						</p>
+					</section>
+					<section>
+						<h3>Brief History of DNS</h3>
+						<ul>
+							<li class="fragment">Back in the day, there was a hosts file</li>
+							<li class="fragment">Hosts file(s) became too much to maintain</li>
+							<li class="fragment">DNS solves this problem</li>
+							<li class="fragment">Kind of like putting the hosts file on the internet</li>
+							<li class="fragment">
+								More scalable than a hosts file because it lets you route traffic
+								to different services depending on what’s being&nbsp;requested
+							</li>
+						</ul>
+					</section>
+				</section>
+
+
+				<!-- Understanding your DNS Config -->
+				<section data-background-image="assets/img/dns-bg-02.jpg">
+					<section>
+						<h2>Understanding your DNS&nbsp;Configuration</h2>
+					</section>
+					<section>
+						<h3>Key Terminology</h3>
+					</section>
+					<section>
+						<h4><i class="fas fa-file-contract"></i> Registrar</h4>
+						<p class="fragment">
+							Company or organization that registers your domain. They point to your name&nbsp;servers.
+						</p>
+					</section>
+
+					<section>
+						<h4><i class="fas fa-network-wired"></i> Nameservers</h4>
+						<p class="fragment">Where your DNS records are hosted. DNS&nbsp;records point to your host.</p>
+					</section>
+
+					<section>
+						<h4><i class="fas fa-server"></i> Hosts &amp; Service Providers</h4>
+						<p class="fragment">
+							Your host is where your website lives.<br>
+							<em class="fragment">(Or we could be talking about a service provider, like in
+								the case of email or a digital marketing tool).</em>
+						</p>
+					</section>
+
+					<section>
+						<h3>Types of Configurations</h3>
+					</section>
+					<section>
+						<h4>
+							🌮 = <i class="fas fa-file-contract"></i> <i class="fas fa-network-wired"></i> <i class="fas fa-server"></i><br>
+							Combined Registrar, Nameservers, and&nbsp;Host
+						</h4>
+						<p class="fragment">
+							<strong>Example:</strong> TacoHost offers to host your WordPress site and bundles
+							in a &ldquo;free&rdquo; domain. They are <strong>registering</strong> the domain for you,
+							providing <strong>nameservers</strong> for your DNS records, and <strong>hosting</strong>
+							your website.
+						</p>
+					</section>
+					<section>
+						<h4>
+							🥗 = <i class="fas fa-file-contract"></i> <i class="fas fa-network-wired"></i><br>
+							🌮 = <i class="fas fa-server"></i>
+							<br>
+							Registrar Provides Nameservers, Points to your&nbsp;Host
+						</h4>
+						<p class="fragment">
+							<strong>Example:</strong> You buy a domain with <strong>DomainSalad</strong>,
+							but host your site with <strong>TacoHost.</strong> Domain Salad <strong>registers</strong>
+							the domain and provides <strong>nameservers</strong> for your DNS records, which point to
+							TacoHost, who <strong>hosts</strong> your website.
+						</p>
+					</section>
+					<section>
+						<h4>
+							🥗 = <i class="fas fa-file-contract"></i><br>
+							🌮 = <i class="fas fa-network-wired"></i> <i class="fas fa-server"></i><br>
+							Registrar Points to Host,<br>Host Provides&nbsp;Nameservers
+						</h4>
+						<p class="fragment">
+							<strong>Example:</strong> just like the previous example, except you are pointing your
+							registrar to your host’s name servers.
+						</p>
+					</section>
+					<section>
+						<h4>
+							🥗 = <i class="fas fa-file-contract"></i><br>
+							🌮 = <i class="fas fa-network-wired"></i><br>
+							🍰 = <i class="fas fa-server"></i><br>
+							Separate Registrar, Nameservers, and&nbsp;Host
+						</h4>
+						<p class="fragment">
+							<strong>Example:</strong> you buy a domain with DomainSalad, use premium DNS services from
+							cakeDNS, and host with TacoHost.
+							DomainSalad <strong>registers</strong> the domain, points to the
+							<strong>nameservers</strong> of cakeDNS, which hosts DNS records that point to
+							<strong>TacoHost</strong>, where your WordPress site is hosted.
+						</p>
+						<p class="fragment">
+							This is a more advanced config - very common when the website is an important part of a
+							company’s business, but not common for less technical users.
+						</p>
+					</section>
+				</section>
+
+
+				<!-- What DNS looks like -->
+				<section data-background-image="assets/img/dns-bg-06.jpg">
+					<section>
+						<h2>What DNS Records Look&nbsp;Like</h2>
+					</section>
+
+					<section>
+						<h3>A records</h3>
+						<pre>
+						<code data-trim data-noescape>
+							<strong>
+							NAME             TYPE  POINTS TO
+							</strong>
+							@          IN    A     172.134.55.67    <span class="comment">; example.com</span>
+							employees  IN    A     172.134.55.67    <span class="comment">; employees.example.com</span>
+							store      IN    A     164.55.78.125    <span class="comment">; store.example.com</span>
+						</code>
+					</pre>
+					<p class="fragment"><strong>Company.com</strong> and <strong>employees.company.com</strong> are
+					on the same server. <strong>Store.company.com</strong> is hosted elsewhere.</p>
+					</section>
+
+					<section>
+						<h3>MX records</h3>
+						<pre>
+							<code data-trim data-noescape>
+								NAME           TYPE  TTL   POINTS TO
+								@        IN    MX    1     alt1.aspmx.l.google.com.    <span class="comment">; Gsuite / Gmail</span>
+								@        IN    MX    1     aspmx.l.google.com.
+								@        IN    MX    5     alt2.aspmx.l.google.com.    <span class="comment">; Another Gsuite server</span>
+								@        IN    MX    10    alt3.aspmx.l.google.com.
+								@        IN    MX    10    alt4.aspmx.l.google.com.
+								store    IN    MX    0     store.example.com.
+								store    IN    A           164.55.78.125               <span class="comment">; Another email service</span>
+							</code>
+						</pre>
+						<p class="fragment">
+							Email for <strong>Company.com</strong> goes to Gsuite. Gsuite has multiple different mail
+							servers defined. Email for <strong>store.example.com</strong> gets routed to the same server
+							that hosts that website.
+						</p>
+					</section>
+
+					<section>
+						<h3>CNAME records</h3>
+						<pre>
+							<code data-trim data-noescape>
+								NAME           TYPE     POINTS TO
+								www      IN    CNAME    example.com.    <span class="comment">; www.example.com - example.com</span>
+								demo     IN    CNAME    sbddesign.github.io.    <span class="comment">; demo.example.com - GitHub Page </span>
+								mail     IN    CNAME    example.com    <span class="comment">; mail.example.com - example.com </span>
+							</code>
+						</pre>
+						<p class="fragment">
+							<strong>www.example.com</strong> goes to example.com. <strong>demo.example.com</strong> points
+							to a microsite hosted on GitHub pages. <strong>mail.example.com</strong> points back to
+							example.com. Note that we are not altering the handling of the email in any way just by adding
+							a subdomain called &ldquo;mail&rdquo;.
+						</p>
+					</section>
+
+					<section>
+						<h3>TXT records</h3>
+
+						<pre>
+							<code data-trim data-noescape>
+								NAME                  TYPE     VALUE
+								example.com.    IN    TXT      "google-site-verification=pZBjhabcdefghijklmnopqrstuvwxyz"    <span class="comment">; Google site verification</span>
+								example.com.    IN    TXT      "v=spf1 include:spf.protection.outlook.com include:salesforce.com ~all"    <span class="comment">; SPF Records</span>
+							</code>
+						</pre>
+						<p class="fragment">
+							Text records store unstructured data related to your domain. Frequently, it's used for
+							things like verification with sites and service-providers (e.g. Google) or using SPF to
+							protect your emails (more on that later).
+						</p>
+					</section>
+				</section>
+
+				<!-- Issues -->
+				<section data-background-image="assets/img/dns-bg-01.jpg">
+					<h2><i class="fas fa-exclamation-circle"></i> Problems &amp; <i class="fas fa-check-circle"></i> Solutions</h2>
+				</section>
+
+				<section data-background-image="assets/img/dns-bg-05.jpg">
+					<section>
+						<h3><i class="fas fa-exclamation-circle"></i> Problem: Migrating a Website</h3>
+						<p>You’re trying to migrate to a new host and are worried about experience downtime.</p>
+					</section>
+					<section>
+						<h4><i class="fas fa-check-circle"></i> Solution: Stage to a Subodmain</h4>
+						<p>Use your DNS to establish a subdomain. Setup site at new host under the subdomain and get it
+							running. Once running, point the main domain to same place as subdomain. When the
+							propagation is complete, users will seamlessly be directed to the cloned site without
+							noticing. 😎
+						</p>
+					</section>
+				</section>
+
+				<section data-background-image="assets/img/dns-bg-05.jpg">
+					<section>
+						<h3><i class="fas fa-exclamation-circle"></i> Problem: Lost Records</h3>
+						<p>Your host cancels your account. Or your host messes something up.
+							Or a malicious threat cyber-actor <em>[insert current jargon]</em>
+							hacks the crap out of your zone file. 😱</p>
+					</section>
+					<section>
+						<h4><i class="fas fa-check-circle"></i> Solution: Backup Your Records</h4>
+						<p>You can actually copy the text of the zone file if you like, or you can just take a
+						screenshot of the DNS records as you see them in the browser. 💾</p>
+					</section>
+					<section>
+						<h4>Seriously <span class="animated infinite bounce">👇</span></h4>
+						<p>
+							If you only take away one thing from this talk, let it be&nbsp;this.<br>
+
+						</p>
+					</section>
+				</section>
+
+				<section data-background-image="assets/img/dns-bg-05.jpg">
+					<section>
+						<h3><i class="fas fa-exclamation-circle"></i> Problem: Security Breach</h3>
+						<p>
+							Somebody with access to your DNS manipulates the records to point your
+							traffic somewhere else. 🤬
+						</p>
+					</section>
+					<section>
+						<h4><i class="fas fa-check-circle"></i> Solution: Basic Security Hygiene</h4>
+						<p>Pay close attention to who has access to your DNS records. Don’t give out the password all
+							willy nilly. 2FA. Basic security hygiene. 🔐</p>
+					</section>
+				</section>
+
+				<section data-background-image="assets/img/dns-bg-05.jpg">
+					<section>
+						<h3><i class="fas fa-exclamation-circle"></i> Problem: Site Too Slow</h3>
+						<p>
+							Can be due to the host (most common, in my personal experience). But also people have to
+							do a DNS lookup to get there, and slow DNS just adds to the time it takes. 😴
+						</p>
+					</section>
+					<section>
+						<h4><i class="fas fa-check-circle"></i> Solution: Premium DNS</h4>
+						<p>Switch to a professional DNS provider that’s separate from your registrar or host. 🔥</p>
+					</section>
+				</section>
+
+				<section data-background-image="assets/img/dns-bg-05.jpg">
+					<section>
+						<h3><i class="fas fa-exclamation-circle"></i> Problem: Email going to spam</h3>
+						<p>
+							Your mail is not coming from the same server as your website is hosted on.
+							So any email from your WP site goes to spam. 💩
+						</p>
+					</section>
+					<section>
+						<h4><i class="fas fa-check-circle"></i> Solution #1: SPF Records</h4>
+						<p>
+							This establishes at the DNS level which servers can send mail on your behalf
+							(with the IP, not the domain). Add any server you want to send mail from to the SPF records.
+							📧
+						</p>
+					</section>
+					<section>
+						<h4><i class="fas fa-check-circle"></i> Solution #2: 3rd Party Mail Service</h4>
+						<p>
+							They will want you to modify your DNS records more than likely if you wan them to send mail
+							from a domain you own. Will vary from provider to provider, but will likely involve adding
+							MX records and TXT records. 📩
+						</p>
+					</section>
+					<section>
+						<h4><i class="fas fa-lock"></i> Further Trust: Add DKIM keys 🔑</h4>
+						<p>
+							Your digital marketing tools, like SalesForce, MailChimp, etc. may send mail as your domain.
+							Some of these will support DKIM as well. Basically, they can digitally sign anything they
+							send using a private key. The public key (which is used to verify the signature) is
+							published on your DNS. Thus, any computer the receives an email can verify the authenticity
+							of it by verifying the digital signature which what’s published in the DNS.
+						</p>
+					</section>
+				</section>
+
+				<section class="cta" data-background-image="assets/img/dns-bg-02.jpg">
+					<h2><i class="fas fa-question-circle"></i> Questions</h2>
+
+					<h3>Stephen DeLorme</h3>
+					<p><i class="fas fa-envelope"></i> <a href="mailto:stephen@delineator.media">stephen@delineator.media</a></p>
+					<p><i class="fas fa-home"></i> <a href="https://delineator.media" target="_blank">delineator.media</a></p>
+					<p><i class="fab fa-twitter"></i> <a href="https://twitter.com/StephenDeLorme" target="_blank">@StephenDeLorme</a></p>
+					<p><i class="fab fa-github"></i> <a href="https://github.com/sbddesign" target="_blank">@sbddesign</a></p>
+					<p><i class="fab fa-keybase"></i> <a href="https://keybase.io/stephendelorme" target="_blank">@StephenDeLorme</a></p>
+				</section>
 			</div>
 		</div>
 
@@ -38,6 +388,7 @@
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				hash: true,
+				center: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
