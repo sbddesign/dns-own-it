@@ -296,6 +296,7 @@
 					<h2><i class="fas fa-exclamation-circle"></i> Problems &amp; <i class="fas fa-check-circle"></i> Solutions</h2>
 				</section>
 
+				<!-- Migrating a website -->
 				<section data-background-image="assets/img/dns-bg-05.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Migrating a Website</h3>
@@ -308,6 +309,42 @@
 							propagation is complete, users will seamlessly be directed to the cloned site without
 							noticing. 😎
 						</p>
+					</section>
+					<section>
+						<h5>Step 1 - Create subdomain</h5>
+						<pre>
+						<code data-trim data-noescape>
+							NAME             TYPE  POINTS TO
+							@          IN    A     172.134.55.67    <span class="comment">; example.com - TacoHost Server</span>
+							staging    IN    A     164.55.78.125    <span class="comment">; staging.example.com - Our new hosting server</span>
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h5>Step 2 - Create a clone</h5>
+						<p>Create a clone of your website on the staging server. This could be done manually by copying
+						the files and database of your WordPress site, or using a migration plugin.</p>
+					</section>
+					<section>
+						<h5>Step 3 - Change primary A record</h5>
+						<pre>
+						<code data-trim data-noescape>
+							NAME             TYPE  POINTS TO
+							@          IN    A     164.55.78.125    <span class="comment">; example.com - Our new hosting server</span>
+							staging    IN    A     164.55.78.125    <span class="comment">; staging.example.com - This can be deleted now</span>
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h5>Step 4 - Check propagation</h5>
+						<p>In a shell, run the command:</p>
+						<pre class="fragment">
+							<code data-trim>
+								dig example.com a
+							</code>
+						</pre>
+						<p class="fragment">Or just go to <a href="https://whatsmydns.net" target="_blank">whatsmydns.net</a> 😆</p>
+						<p class="fragment">Then 🍻</p>
 					</section>
 				</section>
 
