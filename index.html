@@ -491,6 +491,7 @@
 					</section>
 				</section>
 
+				<!-- Email Spam -->
 				<section data-background-image="assets/img/dns-bg-05.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Email going to spam</h3>
@@ -508,34 +509,63 @@
 						</p>
 					</section>
 					<section>
-						<h4><i class="fas fa-check-circle"></i> Solution #2: 3rd Party Mail Service</h4>
 						<p>
-							They will want you to modify your DNS records more than likely if you wan them to send mail
-							from a domain you own. Will vary from provider to provider, but will likely involve adding
-							MX records and TXT records. 📩
+							In this example, only spf.protection.outlook.com, salesforce.com, and some server at
+							201.56.71.59 can send mail on behalf of your domain.
 						</p>
+						<pre>
+							<code data-trim data-noescape>
+								NAME                  TYPE     VALUE
+								example.com.    IN    TXT      "v=spf1 include:spf.protection.outlook.com include:salesforce.com 210.56.71.59 ~all"
+							</code>
+						</pre>
 					</section>
 					<section>
 						<h4><i class="fas fa-lock"></i> Further Trust: Add DKIM keys 🔑</h4>
 						<p>
-							Your digital marketing tools, like SalesForce, MailChimp, etc. may send mail as your domain.
-							Some of these will support DKIM as well. Basically, they can digitally sign anything they
-							send using a private key. The public key (which is used to verify the signature) is
-							published on your DNS. Thus, any computer the receives an email can verify the authenticity
-							of it by verifying the digital signature which what’s published in the DNS.
+							<strong>DKIM</strong> is a technique for digitally signing emails. It uses a private key on
+							the mail server and a public key that is published in the DNS records.</p>
+						<p>
+							<strong>tl;dr</strong> It helps your email client verify that the email you are
+							looking at really cames from where it says it did.
 						</p>
 					</section>
+					<section>
+						<h4><i class="fas fa-lock"></i> Using DKIM 🔑</h4>
+						<ul>
+							<li>Many enterprise level mail providers, e.g. Microsoft, support&nbsp;DKIM.</li>
+							<li>Many digital marketing tools, e.g. SalesForce, support&nbsp;DKIM.</li>
+							<li>If you are self-hosting WordPress, you can configure DKIM at the server&nbsp;level.</li>
+							<li>Or, you can use a 3rd party&nbsp;provider.</li>
+						</ul>
+					</section>
+					<section>
+						<h4><i class="fas fa-check-circle"></i> Solution #2: 3rd Party Mail Service</h4>
+						<p>
+							Offload all of your site's mailing to a 3rd party provider. They typically support SPF
+							and DKIM.
+						</p>
+						<p>
+							You will likely need to modify your DNS records to use a 3rd party service.
+							It will vary from provider to provider, but will likely involve adding MX records and
+							TXT records. 📩
+						</p>
+					</section>
+
 				</section>
 
 				<section class="cta" data-background-image="assets/img/dns-bg-02.jpg">
-					<h2><i class="fas fa-question-circle"></i> Questions</h2>
 
+					<h2><i class="fas fa-question-circle"></i> Questions</h2>
+					<br>
 					<h3>Stephen DeLorme</h3>
 					<p><i class="fas fa-envelope"></i> <a href="mailto:stephen@delineator.media">stephen@delineator.media</a></p>
 					<p><i class="fas fa-home"></i> <a href="https://delineator.media" target="_blank">delineator.media</a></p>
 					<p><i class="fab fa-twitter"></i> <a href="https://twitter.com/StephenDeLorme" target="_blank">@StephenDeLorme</a></p>
 					<p><i class="fab fa-github"></i> <a href="https://github.com/sbddesign" target="_blank">@sbddesign</a></p>
 					<p><i class="fab fa-keybase"></i> <a href="https://keybase.io/stephendelorme" target="_blank">@StephenDeLorme</a></p>
+
+					<img src="assets/svg/delineator-logo-color.svg" alt="Delineator&reg;" id="logo">
 				</section>
 			</div>
 		</div>

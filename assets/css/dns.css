@@ -6,10 +6,15 @@
 
 .reveal a {
     color: rgb(0, 255, 220);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .reveal a:hover {
     color: rgb(10, 255, 240);
+}
+
+.reveal section {
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
@@ -75,4 +80,12 @@ span.animated {
 .small {
     font-size: 1vw;
     width: 50%;
+}
+
+#logo {
+    border: none;
+    background: none;
+    box-shadow: none;
+    max-width: 25%;
+    float: right;
 }
