@@ -71,7 +71,24 @@
 					</section>
 					<section>
 						<h3>DNS = Domain Name System</h3>
-						<p class="fragment">
+					</section>
+					<section>
+						<p>According to the
+							<a href="https://en.wikipedia.org/wiki/Domain_Name_System" target="_blank">
+								Hitchhiker's Guide to the Galaxy:
+							</a>
+						</p>
+
+						<blockquote class="fragment">
+							The Domain Name System (DNS) is a hierarchical and decentralized naming system for
+							computers, services, or other resources connected to the Internet or a private network
+							&hellip;
+							Most prominently, it translates more readily memorized domain names to the numerical IP
+							addresses&hellip;
+						</blockquote>
+					</section>
+					<section>
+						<p>
 							DNS records basically tell people’s computers how to get to your website, email,&nbsp;etc.
 						</p>
 					</section>
@@ -109,6 +126,9 @@
 					<section>
 						<h4><i class="fas fa-network-wired"></i> Nameservers</h4>
 						<p class="fragment">Where your DNS records are hosted. DNS&nbsp;records point to your host.</p>
+						<p class="fragment">There are <strong>lots</strong> of nameservers in the world.
+							<em>Your nameservers</em> are the authority for <em>your domain</em>
+						</p>
 					</section>
 					<section>
 						<h4><i class="fas fa-server"></i> Hosts &amp; Service Providers</h4>
@@ -118,6 +138,42 @@
 								the case of email or a digital marketing tool).</em>
 						</p>
 					</section>
+
+					<section>
+						<h2>DNS Resolution</h2>
+						<p>
+							When your type in <strong>example.com</strong>, your browser's DNS resolver first has to
+							<em>resolve</em> the IP address of that domain&nbsp;name.
+						</p>
+					</section>
+					<section>
+						<p>
+							The resolver may go through several &ldquo;hops&rdquo; to get there.
+						</p>
+						<ol>
+							<li class="fragment">Checking the browser's local cache (you may have visited this site already</li>
+							<li class="fragment">Your ISP's DNS server might have the IP cached</li>
+							<li class="fragment">If not, your resolver may end up being referred to the root <strong>.com</strong> nameserver</li>
+							<li class="fragment">Whereby it may be referred to the example.com nameservers</li>
+							<li class="fragment">And finally getting the IP address 🥱</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Super Fun Interactive Example <span class="animated infinite swing">🎊</span></h2>
+						<p>
+							Open up a terminal shell and type in this command, swapping out example.com with a domain
+							name that you&nbsp;own.
+						</p>
+						<pre>
+							<code data-trim>
+								dig +trace example.com
+							</code>
+						</pre>
+						<p>That's DNS resolution!</p>
+					</section>
+
+
 
 					<section>
 						<h3>Types of Configurations</h3>
@@ -379,11 +435,45 @@
 							Somebody with access to your DNS manipulates the records to point your
 							traffic somewhere else. 🤬
 						</p>
+						<p class="fragment">
+							For further reading:
+							<a href="https://www.wired.com/story/what-is-dns-hijacking/" target="_blank">
+								What Is DNS Hijacking? <i class="fas fa-arrow-circle-right"></i>
+							</a>
+						</p>
 					</section>
 					<section>
 						<h4><i class="fas fa-check-circle"></i> Solution: Basic Security Hygiene</h4>
 						<p>Pay close attention to who has access to your DNS records. Don’t give out the password all
-							willy nilly. 2FA. Basic security hygiene. 🔐</p>
+							willy nilly. Basic security hygiene. 🔐</p>
+					</section>
+					<section>
+						<h5><i class="fas fa-lock"></i> Limit Who Has Access</h5>
+						<ul>
+							<li>
+								🤨 Delegating access or creating an account is preferable to giving someone your login info
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h5><i class="fas fa-lock"></i> Limit Who Has Access</h5>
+						<ul>
+							<li>
+								If you must share your password with them, find a secure way of doing this.
+								<ul>
+									<li>🔑 Encrypted email or messaging app</li>
+									<li>💣 Or, expiring / exploding messages</li>
+									<li>
+										📱 Or, use different channels, e.g
+										email the username but text the password.
+									</li>
+								</ul>
+							</li>
+							<li>
+								😬 When they are done, change the password. Even if you trust them, you certainly won't
+								trust someone who compromises their computer and takes the password.
+							</li>
+						</ul>
 					</section>
 				</section>
 
