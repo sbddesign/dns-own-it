@@ -408,8 +408,31 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/highlight/highlight.js' },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/chalkboard/chalkboard.js' },
+				],
+				chalkboard: {
+					theme: 'whiteboard',
+					background: [ 'rgba(10,10,10,.1)' , 'assets/img/whiteboard-dark.png' ],
+					boardmarkers : [
+						{ color: 'rgba(255,255,255,0.85)', cursor: 'url(plugin/chalkboard/img/boardmarker-black.png), auto'},
+						{ color: 'rgba(30,144,255, 1)', cursor: 'url(plugin/chalkboard/img/boardmarker-blue.png), auto'},
+						{ color: 'rgba(220,20,60,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-red.png), auto'},
+						{ color: 'rgba(50,205,50,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-green.png), auto'},
+						{ color: 'rgba(255,140,0,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-orange.png), auto'},
+						{ color: 'rgba(150,0,20150,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-purple.png), auto'},
+						{ color: 'rgba(255,220,0,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-yellow.png), auto'}
+					]
+				},
+				keyboard: {
+					67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+					66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+					46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+					8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+					68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+					88: function() { RevealChalkboard.colorNext() },	// cycle colors forward when 'x' is pressed
+					89: function() { RevealChalkboard.colorPrev() },	// cycle colors backward when 'y' is pressed
+				}
 			});
 		</script>
 	</body>
