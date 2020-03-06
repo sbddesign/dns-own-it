@@ -71,3 +71,8 @@ span.animated {
     margin-right: 3rem;
     display: inline-block;
 }
+
+.small {
+    font-size: 1vw;
+    width: 50%;
+}
