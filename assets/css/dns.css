@@ -89,3 +89,7 @@ span.animated {
     max-width: 25%;
     float: right;
 }
+
+span.fragment {
+    display: inline-block;
+}

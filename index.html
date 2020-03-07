@@ -39,20 +39,11 @@
 				<!-- Intro -->
 				<section data-background-image="assets/img/dns-bg-01.jpg">
 					<section>
-						<h2>🧐 The Way I See It</h2>
-						<ul>
-							<li class="fragment">
-								DNS records are important to a website.
-								<em class="fragment">(Massive&nbsp;understatement).</em>
-							</li>
-							<li class="fragment">
-								A lot of website owner's don't understand how they work, and don't feel confident
-								maintaining them.
-							</li>
-						</ul>
+						<h2>🧐 My observation <span class="fragment fade-left">=  People fear DNS <span class="animated infinite wobble">😱</span></span></h2>
+						<p> </p>
 					</section>
 					<section>
-						<h2>What relies on your DNS&nbsp;records?</h2>
+						<h2>A lot relies on your DNS&nbsp;records</h2>
 						<ul>
 							<li class="fragment">🙂 Your website</li>
 							<li class="fragment">😃 Your other website</li>
@@ -61,6 +52,22 @@
 							<li class="fragment">😵 Your digital marketing tools</li>
 							<li class="fragment">🤯 Almost anything</li>
 						</ul>
+					</section>
+
+					<section>
+						<h2><i class="fas fa-exclamation-circle"></i> Problems we will look at</h2>
+						<ul>
+							<li class="fragment fade-left">Migrating a website</li>
+							<li class="fragment fade-left">Losing DNS records</li>
+							<li class="fragment fade-left">Security breaches</li>
+							<li class="fragment fade-left">Slow page speed</li>
+							<li class="fragment fade-left">Emails going to spam</li>
+						</ul>
+
+						<aside class="notes">
+							<strong>End of slide:</strong> query the room and figure out the demographic:
+							Developers? Designers? Business owners? etc.
+						</aside>
 					</section>
 				</section>
 
@@ -83,17 +90,26 @@
 							The Domain Name System (DNS) is a hierarchical and decentralized naming system for
 							computers, services, or other resources connected to the Internet or a private network
 							&hellip;
-							Most prominently, it translates more readily memorized domain names to the numerical IP
-							addresses&hellip;
+							Most prominently, it translates more readily memorized domain names to the numerical
+							IP&nbsp;addresses&hellip;
 						</blockquote>
 					</section>
 					<section>
-						<p>
-							DNS records basically tell people’s computers how to get to your website, email,&nbsp;etc.
+						<h3>In Other Words</h3>
+						<p class="fragment">
+							DNS records tell people’s computers how to get to your website, email,&nbsp;etc.
 						</p>
+						<p class="fragment">
+							DNS converts <strong>example.com</strong> into <strong>205.142.35.67</strong>
+						</p>
+						<pre class="fragment">
+							<code data-trim data-noescape>
+							@          IN    A     172.134.55.67    <span class="comment">; example.com</span>
+						</code>
+						</pre>
 					</section>
 					<section>
-						<h3>Brief History of DNS</h3>
+						<h3>Why we need DNS</h3>
 						<ul>
 							<li class="fragment">Back in the day, there was a hosts file</li>
 							<li class="fragment">Hosts file(s) became too much to maintain</li>
@@ -127,7 +143,7 @@
 						<h4><i class="fas fa-network-wired"></i> Nameservers</h4>
 						<p class="fragment">Where your DNS records are hosted. DNS&nbsp;records point to your host.</p>
 						<p class="fragment">There are <strong>lots</strong> of nameservers in the world.
-							<em>Your nameservers</em> are the authority for <em>your domain</em>
+							<em>Your nameservers</em> are the authority for <em>your&nbsp;domain.</em>
 						</p>
 					</section>
 					<section>
@@ -157,6 +173,9 @@
 							<li class="fragment">Whereby it may be referred to the example.com nameservers</li>
 							<li class="fragment">And finally getting the IP address 🥱</li>
 						</ol>
+						<aside class="notes">
+							<strong>End of slide:</strong> Draw whiteboard diagram
+						</aside>
 					</section>
 
 					<section>
@@ -191,6 +210,9 @@
 							<li class="fragment">🌮 Providing <strong>nameservers</strong> for your DNS&nbsp;records.</li>
 							<li class="fragment">🌮 <strong>Hosting</strong> your website.</li>
 						</ul>
+						<aside class="notes">
+							<strong>End of slide:</strong> Draw whiteboard diagram
+						</aside>
 					</section>
 					<section>
 						<h4>
@@ -215,6 +237,9 @@
 							</li>
 							<li class="fragment">🌮 TacoHost <strong>hosts</strong> your website.</li>
 						</ul>
+						<aside class="notes">
+							<strong>End of slide:</strong> Draw whiteboard diagram
+						</aside>
 					</section>
 					<section>
 						<h4>
@@ -236,6 +261,9 @@
 							<li class="fragment">🌮 Registration points to TacoHost&rsquo;s&nbsp;<strong>nameservers</strong>.</li>
 							<li class="fragment">🌮 DNS records point to your TacoHost&nbsp;<strong>hosting</strong> server.</li>
 						</ul>
+						<aside class="notes">
+							<strong>End of slide:</strong> Draw whiteboard diagram
+						</aside>
 					</section>
 					<section>
 						<h4>
@@ -266,6 +294,9 @@
 						<p class="fragment small">
 							<em>This is a more advanced configuration.<br>It's great, but not for everyone.</em>
 						</p>
+						<aside class="notes">
+							<strong>End of slide:</strong> Draw whiteboard diagram
+						</aside>
 					</section>
 				</section>
 
@@ -279,7 +310,7 @@
 					<section>
 						<h3>A records</h3>
 						<pre>
-						<code data-trim data-noescape>
+							<code data-trim data-noescape>
 							<strong>
 							NAME             TYPE  POINTS TO
 							</strong>
@@ -287,9 +318,9 @@
 							employees  IN    A     172.134.55.67    <span class="comment">; employees.example.com</span>
 							store      IN    A     164.55.78.125    <span class="comment">; store.example.com</span>
 						</code>
-					</pre>
-					<p class="fragment"><strong>Company.com</strong> and <strong>employees.company.com</strong> are
-					on the same server. <strong>Store.company.com</strong> is hosted elsewhere.</p>
+						</pre>
+					<p class="fragment"><strong>Example.com</strong> and <strong>employees.example.com</strong> are
+					on the same server. <strong>Store.example.com</strong> is hosted elsewhere.</p>
 					</section>
 
 					<section>
@@ -307,7 +338,7 @@
 							</code>
 						</pre>
 						<p class="fragment">
-							Email for <strong>Company.com</strong> goes to Gsuite. Gsuite has multiple different mail
+							Email for <strong>example.com</strong> goes to Gsuite. Gsuite has multiple different mail
 							servers defined. Email for <strong>store.example.com</strong> gets routed to the same server
 							that hosts that website.
 						</p>
@@ -339,7 +370,7 @@
 								NAME                  TYPE     VALUE
 								example.com.    IN    TXT      "google-site-verification=pZBjhabcdefghijklmnopqrstuvwxyz"    <span class="comment">; Google site verification</span>
 								example.com.    IN    TXT      "v=spf1 include:spf.protection.outlook.com include:salesforce.com ~all"    <span class="comment">; SPF Records</span>
-								example.com.    IN    TXT      "potatoe"    <span class="comment">; It's not going to hurt anything, might as well</span>
+								example.com.    IN    TXT      "potato"    <span class="comment">; It's not going to hurt anything, might as well</span>
 							</code>
 						</pre>
 						<p class="fragment">
@@ -365,8 +396,8 @@
 						<h4><i class="fas fa-check-circle"></i> Solution: Stage to a Subodmain</h4>
 						<p>Use your DNS to establish a subdomain. Setup site at new host under the subdomain and get it
 							running. Once running, point the main domain to same place as subdomain. When the
-							propagation is complete, users will seamlessly be directed to the cloned site without
-							noticing. 😎
+							propagation is complete, users will seamlessly be directed to the cloned site
+							without&nbsp;noticing. 😎
 						</p>
 					</section>
 					<section>
@@ -407,6 +438,7 @@
 					</section>
 				</section>
 
+				<!-- Lost Records -->
 				<section data-background-image="assets/img/dns-bg-05.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Lost Records</h3>
@@ -428,12 +460,13 @@
 					</section>
 				</section>
 
+				<!-- Security Breach -->
 		 		<section data-background-image="assets/img/dns-bg-05.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Security Breach</h3>
 						<p>
 							Somebody with access to your DNS manipulates the records to point your
-							traffic somewhere else. 🤬
+							traffic somewhere&nbsp;else. 🤬
 						</p>
 						<p class="fragment">
 							For further reading:
@@ -477,6 +510,7 @@
 					</section>
 				</section>
 
+				<!-- Slow Page Speed -->
 				<section data-background-image="assets/img/dns-bg-05.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Site Too Slow</h3>
@@ -550,6 +584,10 @@
 							It will vary from provider to provider, but will likely involve adding MX records and
 							TXT records. 📩
 						</p>
+						<aside class="notes">
+							<strong>Final content slide!</strong>
+							Wind things down for final questions slide.
+						</aside>
 					</section>
 
 				</section>
@@ -579,6 +617,7 @@
 			Reveal.initialize({
 				hash: true,
 				center: true,
+				defaultTiming: 48,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
@@ -591,11 +630,11 @@
 					background: [ 'rgba(10,10,10,.1)' , 'assets/img/whiteboard-dark.png' ],
 					boardmarkers : [
 						{ color: 'rgba(255,255,255,0.85)', cursor: 'url(plugin/chalkboard/img/boardmarker-black.png), auto'},
-						{ color: 'rgba(30,144,255, 1)', cursor: 'url(plugin/chalkboard/img/boardmarker-blue.png), auto'},
-						{ color: 'rgba(220,20,60,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-red.png), auto'},
-						{ color: 'rgba(50,205,50,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-green.png), auto'},
-						{ color: 'rgba(255,140,0,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-orange.png), auto'},
-						{ color: 'rgba(150,0,20150,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-purple.png), auto'},
+						{ color: 'rgb(0, 255, 220)', cursor: 'url(plugin/chalkboard/img/boardmarker-blue.png), auto'},
+						{ color: 'rgb(255, 0, 255)', cursor: 'url(plugin/chalkboard/img/boardmarker-red.png), auto'},
+						// { color: 'rgba(50,205,50,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-green.png), auto'},
+						// { color: 'rgba(255,140,0,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-orange.png), auto'},
+						// { color: 'rgba(150,0,20150,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-purple.png), auto'},
 						{ color: 'rgba(255,220,0,1)', cursor: 'url(plugin/chalkboard/img/boardmarker-yellow.png), auto'}
 					]
 				},
