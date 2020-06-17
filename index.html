@@ -31,13 +31,13 @@
 		<div class="reveal">
 			<div class="slides">
 				<!-- Title -->
-				<section data-background-image="assets/img/dns-bg-05.jpg">
+				<section data-background-image="assets/img/dns-bg-11.jpg">
 					<h1>DNS <span class="subtitle"><span class="animated infinite bounce">🤘</span> Own it!</span></h1>
 					<p><small>by Stephen DeLorme</small></p>
 				</section>
 
 				<!-- Intro -->
-				<section data-background-image="assets/img/dns-bg-01.jpg">
+				<section data-background-image="assets/img/dns-bg-07.jpg">
 					<section>
 						<h2>🧐 My observation <span class="fragment fade-left">=  People fear DNS <span class="animated infinite wobble">😱</span></span></h2>
 						<p> </p>
@@ -72,30 +72,13 @@
 				</section>
 
 				<!-- What is DNS? -->
-				<section data-background-image="assets/img/dns-bg-03.jpg">
+				<section data-background-image="assets/img/dns-bg-09.jpg">
 					<section>
 						<h2>🤔 What is DNS?</h2>
 					</section>
 					<section>
 						<h3>DNS = Domain Name System</h3>
-					</section>
-					<section>
-						<p>According to the
-							<a href="https://en.wikipedia.org/wiki/Domain_Name_System" target="_blank">
-								Hitchhiker's Guide to the Galaxy:
-							</a>
-						</p>
 
-						<blockquote class="fragment">
-							The Domain Name System (DNS) is a hierarchical and decentralized naming system for
-							computers, services, or other resources connected to the Internet or a private network
-							&hellip;
-							Most prominently, it translates more readily memorized domain names to the numerical
-							IP&nbsp;addresses&hellip;
-						</blockquote>
-					</section>
-					<section>
-						<h3>In Other Words</h3>
 						<p class="fragment">
 							DNS records tell people’s computers how to get to your website, email,&nbsp;etc.
 						</p>
@@ -108,28 +91,6 @@
 						</code>
 						</pre>
 					</section>
-					<section>
-						<h3>Why we need DNS</h3>
-						<ul>
-							<li class="fragment">Back in the day, there was a hosts file</li>
-							<li class="fragment">Hosts file(s) became too much to maintain</li>
-							<li class="fragment">DNS solves this problem</li>
-							<li class="fragment">Kind of like putting the hosts file on the internet</li>
-							<li class="fragment">
-								More scalable than a hosts file because it lets you route traffic
-								to different services depending on what’s being&nbsp;requested
-							</li>
-						</ul>
-					</section>
-				</section>
-
-
-				<!-- Understanding your DNS Config -->
-				<section data-background-image="assets/img/dns-bg-02.jpg">
-					<section>
-						<h2>Understanding your DNS&nbsp;Configuration</h2>
-					</section>
-
 					<section>
 						<h3>Key Terminology</h3>
 					</section>
@@ -154,240 +115,31 @@
 								the case of email or a digital marketing tool).</em>
 						</p>
 					</section>
-
 					<section>
-						<h2>DNS Resolution</h2>
-						<p>
-							When your type in <strong>example.com</strong>, your browser's DNS resolver first has to
-							<em>resolve</em> the IP address of that domain&nbsp;name.
-						</p>
-					</section>
-					<section>
-						<p>
-							The resolver may go through several &ldquo;hops&rdquo; to get there.
-						</p>
-						<ol>
-							<li class="fragment">Checking the browser's local cache (you may have visited this site already</li>
-							<li class="fragment">Your ISP's DNS server might have the IP cached</li>
-							<li class="fragment">If not, your resolver may end up being referred to the root <strong>.com</strong> nameserver</li>
-							<li class="fragment">Whereby it may be referred to the example.com nameservers</li>
-							<li class="fragment">And finally getting the IP address 🥱</li>
-						</ol>
-						<aside class="notes">
-							<strong>End of slide:</strong> Draw whiteboard diagram
-						</aside>
-					</section>
-
-					<section>
-						<h2>Super Fun Interactive Example <span class="animated infinite swing">🎊</span></h2>
-						<p>
-							Open up a terminal shell and type in this command, swapping out example.com with a domain
-							name that you&nbsp;own.
-						</p>
-						<pre>
-							<code data-trim>
-								dig +trace example.com
-							</code>
-						</pre>
-						<p>That's DNS resolution!</p>
-					</section>
-
-
-
-					<section>
-						<h3>Types of Configurations</h3>
-					</section>
-					<section>
-						<h4>
-							🌮 = <i class="fas fa-file-contract"></i> <i class="fas fa-network-wired"></i> <i class="fas fa-server"></i><br>
-							Combined Registrar, Nameservers, and&nbsp;Host
-						</h4>
-						<p class="fragment small">
-							<strong>Example:</strong> TacoHost offers to host your WordPress site and bundles
-							in a &ldquo;free&rdquo; domain. TacoHost is:</p>
-						<ul class="small">
-							<li class="fragment">🌮 <strong>Registering</strong> the domain for you.</li>
-							<li class="fragment">🌮 Providing <strong>nameservers</strong> for your DNS&nbsp;records.</li>
-							<li class="fragment">🌮 <strong>Hosting</strong> your website.</li>
-						</ul>
-						<aside class="notes">
-							<strong>End of slide:</strong> Draw whiteboard diagram
-						</aside>
-					</section>
-					<section>
-						<h4>
-							<span class="icon-group">
-								🥗 = <i class="fas fa-file-contract"></i> <i class="fas fa-network-wired"></i>
-							</span>
-							<span class="icon-group">
-								🌮 = <i class="fas fa-server"></i>
-							</span>
-							<br>
-							Registrar Provides Nameservers, Points to your&nbsp;Host
-						</h4>
-						<p class="fragment small">
-							<strong>Example:</strong> You buy a domain with DomainSalad,
-							but host your site with&nbsp;TacoHost.
-						</p>
-						<ul class="small">
-							<li class="fragment">🥗Domain Salad <strong>registers</strong> the domain.</li>
-							<li class="fragment">
-								🥗 Domain Salad also provides <strong>nameservers</strong> for your DNS records,
-								pointing to TacoHost.
+						<h4><i class="fas fa-server"></i> Understanding Your DNS Configuration</h4>
+						<ul class="fragment">
+							<li>Your registrar, nameservers, and website hosting could all be coming from the same
+								provider.
 							</li>
-							<li class="fragment">🌮 TacoHost <strong>hosts</strong> your website.</li>
-						</ul>
-						<aside class="notes">
-							<strong>End of slide:</strong> Draw whiteboard diagram
-						</aside>
-					</section>
-					<section>
-						<h4>
-							<span class="icon-group">
-								🥗 = <i class="fas fa-file-contract"></i><br>
-							</span>
-							<span class="icon-group">
-								🌮 = <i class="fas fa-network-wired"></i> <i class="fas fa-server"></i>
-							</span>
-							<br>
-							Registrar Points to Host,<br>Host Provides&nbsp;Nameservers
-						</h4>
-						<p class="fragment small">
-							<strong>Example:</strong> just like the previous example, except you are pointing your
-							registrar to your host’s name servers.
-						</p>
-						<ul class="small">
-							<li class="fragment">🥗 Domain Salad <strong>registers</strong> the domain.</li>
-							<li class="fragment">🌮 Registration points to TacoHost&rsquo;s&nbsp;<strong>nameservers</strong>.</li>
-							<li class="fragment">🌮 DNS records point to your TacoHost&nbsp;<strong>hosting</strong> server.</li>
-						</ul>
-						<aside class="notes">
-							<strong>End of slide:</strong> Draw whiteboard diagram
-						</aside>
-					</section>
-					<section>
-						<h4>
-							<span class="icon-group">
-								🥗 = <i class="fas fa-file-contract"></i>
-							</span>
-							<span class="icon-group">
-								🌮 = <i class="fas fa-network-wired"></i>
-							</span>
-							<span class="icon-group">
-								🍰 = <i class="fas fa-server"></i>
-							</span>
-							<br>
-							Separate Registrar, Nameservers, and&nbsp;Host
-						</h4>
-						<p class="fragment small">
-							<strong>Example:</strong> you buy a domain with DomainSalad, use premium DNS services from
-							cakeDNS, and host with TacoHost.
-						</p>
-						<ul class="small">
-							<li class="fragment">🥗 Domain Salad <strong>registers</strong> the domain.</li>
 							<li class="fragment">
-								🍰 Registration points to cakeDNS&nbsp;<strong>nameservers</strong>.
-								DNS records point to TacoHost.
+								Or, you might have a registrar for your domain, and a website host that provides you
+								with nameservers.
 							</li>
-							<li class="fragment">🌮 TacoHost <strong>hosts</strong> your website.</li>
+							<li class="fragment">
+								For advanced setups, you might even have your registrar, nameservers, and hosting coming
+								from three separate providers.
+							</li>
 						</ul>
-						<p class="fragment small">
-							<em>This is a more advanced configuration.<br>It's great, but not for everyone.</em>
-						</p>
-						<aside class="notes">
-							<strong>End of slide:</strong> Draw whiteboard diagram
-						</aside>
-					</section>
-				</section>
-
-
-				<!-- What DNS looks like -->
-				<section data-background-image="assets/img/dns-bg-06.jpg">
-					<section>
-						<h2>What DNS Records Look&nbsp;Like</h2>
-					</section>
-
-					<section>
-						<h3>A records</h3>
-						<pre>
-							<code data-trim data-noescape>
-							<strong>
-							NAME             TYPE  POINTS TO
-							</strong>
-							@          IN    A     172.134.55.67    <span class="comment">; example.com</span>
-							employees  IN    A     172.134.55.67    <span class="comment">; employees.example.com</span>
-							store      IN    A     164.55.78.125    <span class="comment">; store.example.com</span>
-						</code>
-						</pre>
-					<p class="fragment"><strong>Example.com</strong> and <strong>employees.example.com</strong> are
-					on the same server. <strong>Store.example.com</strong> is hosted elsewhere.</p>
-					</section>
-
-					<section>
-						<h3>MX records</h3>
-						<pre>
-							<code data-trim data-noescape>
-								NAME           TYPE  TTL   POINTS TO
-								@        IN    MX    1     alt1.aspmx.l.google.com.    <span class="comment">; Gsuite / Gmail</span>
-								@        IN    MX    1     aspmx.l.google.com.
-								@        IN    MX    5     alt2.aspmx.l.google.com.    <span class="comment">; Another Gsuite server</span>
-								@        IN    MX    10    alt3.aspmx.l.google.com.
-								@        IN    MX    10    alt4.aspmx.l.google.com.
-								store    IN    MX    0     store.example.com.
-								store    IN    A           164.55.78.125               <span class="comment">; Another email service</span>
-							</code>
-						</pre>
-						<p class="fragment">
-							Email for <strong>example.com</strong> goes to Gsuite. Gsuite has multiple different mail
-							servers defined. Email for <strong>store.example.com</strong> gets routed to the same server
-							that hosts that website.
-						</p>
-					</section>
-
-					<section>
-						<h3>CNAME records</h3>
-						<pre>
-							<code data-trim data-noescape>
-								NAME           TYPE     POINTS TO
-								www      IN    CNAME    example.com.    <span class="comment">; www.example.com - example.com</span>
-								demo     IN    CNAME    sbddesign.github.io.    <span class="comment">; demo.example.com - GitHub Page </span>
-								mail     IN    CNAME    example.com    <span class="comment">; mail.example.com - example.com </span>
-							</code>
-						</pre>
-						<p class="fragment">
-							<strong>www.example.com</strong> goes to example.com. <strong>demo.example.com</strong> points
-							to a microsite hosted on GitHub pages. <strong>mail.example.com</strong> points back to
-							example.com. Note that we are not altering the handling of the email in any way just by adding
-							a subdomain called &ldquo;mail&rdquo;.
-						</p>
-					</section>
-
-					<section>
-						<h3>TXT records</h3>
-
-						<pre>
-							<code data-trim data-noescape>
-								NAME                  TYPE     VALUE
-								example.com.    IN    TXT      "google-site-verification=pZBjhabcdefghijklmnopqrstuvwxyz"    <span class="comment">; Google site verification</span>
-								example.com.    IN    TXT      "v=spf1 include:spf.protection.outlook.com include:salesforce.com ~all"    <span class="comment">; SPF Records</span>
-								example.com.    IN    TXT      "potato"    <span class="comment">; It's not going to hurt anything, might as well</span>
-							</code>
-						</pre>
-						<p class="fragment">
-							Text records store unstructured data related to your domain. Frequently, it's used for
-							things like verification with sites and service-providers (e.g. Google) or using SPF to
-							protect your emails (more on that later).
-						</p>
 					</section>
 				</section>
 
 				<!-- Issues -->
-				<section data-background-image="assets/img/dns-bg-01.jpg">
+				<section data-background-image="assets/img/dns-bg-12.jpg">
 					<h2><i class="fas fa-exclamation-circle"></i> Problems &amp; <i class="fas fa-check-circle"></i> Solutions</h2>
 				</section>
 
 				<!-- Migrating a website -->
-				<section data-background-image="assets/img/dns-bg-05.jpg">
+				<section data-background-image="assets/img/dns-bg-11.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Migrating a Website</h3>
 						<p>You’re trying to migrate to a new host and are worried about experience downtime.</p>
@@ -439,7 +191,7 @@
 				</section>
 
 				<!-- Lost Records -->
-				<section data-background-image="assets/img/dns-bg-05.jpg">
+				<section data-background-image="assets/img/dns-bg-11.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Lost Records</h3>
 						<p>Your host cancels your account. Or your host messes something up.
@@ -461,7 +213,7 @@
 				</section>
 
 				<!-- Security Breach -->
-		 		<section data-background-image="assets/img/dns-bg-05.jpg">
+		 		<section data-background-image="assets/img/dns-bg-11.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Security Breach</h3>
 						<p>
@@ -511,7 +263,7 @@
 				</section>
 
 				<!-- Slow Page Speed -->
-				<section data-background-image="assets/img/dns-bg-05.jpg">
+				<section data-background-image="assets/img/dns-bg-11.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Site Too Slow</h3>
 						<p>
@@ -526,7 +278,7 @@
 				</section>
 
 				<!-- Email Spam -->
-				<section data-background-image="assets/img/dns-bg-05.jpg">
+				<section data-background-image="assets/img/dns-bg-11.jpg">
 					<section>
 						<h3><i class="fas fa-exclamation-circle"></i> Problem: Email going to spam</h3>
 						<p>
@@ -592,7 +344,8 @@
 
 				</section>
 
-				<section class="cta" data-background-image="assets/img/dns-bg-02.jpg">
+				<!-- Ending Slide -->
+				<section class="cta" data-background-image="assets/img/dns-bg-08.jpg">
 
 					<h2><i class="fas fa-question-circle"></i> Questions</h2>
 					<br>
